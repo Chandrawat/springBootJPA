@@ -1,6 +1,7 @@
 package com.saksham.app;
 
-import org.springframework.beans.factory.annotation.Autowired;  
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;  
 import org.springframework.web.bind.annotation.RequestBody;  
 import org.springframework.web.bind.annotation.RequestMapping;  
@@ -22,7 +23,15 @@ public class UserController {
         userService.addUser(userRecord);  
     }  
     @RequestMapping(value="/user/{id}", method=RequestMethod.GET)  
-    public Optional<UserRecord> getUser(@PathVariable String id){  
+    public Optional<UserRecord> getUser(@PathVariable int id){  
         return userService.getUser(id);  
     }  
+    
+    @DeleteMapping(value = "/user/{id}")
+    public void deleteUser (@PathVariable int id) {
+    	userService.delete(id);
+    }
+    
+    
+    
 }

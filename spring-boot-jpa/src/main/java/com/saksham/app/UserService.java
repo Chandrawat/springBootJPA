@@ -15,13 +15,13 @@ public class UserService {
         userRepository.findAll().forEach(userRecords::add);  
         return userRecords;  
     }  
-    public Optional<UserRecord> getUser(String id){  
+    public Optional<UserRecord> getUser(int id){  
         return userRepository.findById(id);  
     }  
     public void addUser(UserRecord userRecord){  
         userRepository.save(userRecord);  
     }  
-    public void delete(String id){  
+    public void delete(int id){  
         userRepository.deleteById(id);  
     }  
 }  
